@@ -1,0 +1,10 @@
+#homebtn {
+  --bs-btn-color: #00d9ff; /* Set text color to pink */
+  --bs-btn-border-color: #00d9ff; /* Set border color to pink */
+  --bs-btn-hover-bg: #00d9ff; /* Set background color to pink on hover */
+  --bs-btn-hover-border-color: #00d9ff; /* Set border color to pink on hover */
+  --bs-btn-active-bg: #00d9ff; /* Set background color to pink when active */
+  --bs-btn-active-border-color: #00d9ff; /* Set border color to pink when active */
+  --bs-btn-hover-color: black; /* Set text color to white on hover */
+  --bs-btn-active-color: #00d9ff; /* Set text color to white when active */
+}
