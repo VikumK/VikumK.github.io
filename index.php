@@ -14,7 +14,22 @@
 </head>
 
 <body class="bg-dark text-white animate__animated home">
-  <?php include 'navbar.html'; ?>
+  <header>
+    <!--NavBar-->
+    <nav class="navbar bg-dark sticky-top bg-body-tertiary" data-bs-theme="dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="img/cpu.svg" alt="Logo" height="50" />
+        </a>
+        <button type="button" class="btn" id="homebtn">
+          <b>Home</b>
+        </button>
+        <button type="button" class="btn btn-outline-light">
+          <b>Tools</b>
+        </button>
+      </div>
+    </nav>
+  </header>
 </body>
 
 </html>
