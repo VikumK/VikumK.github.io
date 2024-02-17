@@ -1,20 +1,20 @@
-document
-  .getElementById("urlShortenerForm")
-  .addEventListener("submit", function (event) {
+document.getElementById('urlShortenerForm').addEventListener('submit', function(event) {
     event.preventDefault();
+    
+    var longUrl = document.getElementById('longUrlInput').value;
+    
+    // Call the shortenUrl function with the long URL
+    shortenUrl(longUrl, function(shortUrl) {
+        // Display the shortened URL
+        document.getElementById('shortenedUrl').innerText = 'Shortened URL: ' + shortUrl;
+    });
+});
 
-    var longUrl = document.getElementById("longUrlInput").value;
-
-    // Here you would implement logic to generate a short URL and save the mapping
-    var shortUrl = generateShortUrl(longUrl);
-
-    document.getElementById("shortenedUrl").innerText =
-      "Shortened URL: " + shortUrl;
-  });
-
-function generateShortUrl(longUrl) {
-  // Here you would implement logic to generate a short URL
-  // This could involve generating a unique ID or using a hashing algorithm
-  // For simplicity, let's assume we just append a random string to the base URL
-  return "https://vikumk.github.io/" + Math.random().toString(36).substr(2, 5);
+function shortenUrl(longUrl, callback) {
+    // Dummy function to generate a shortened URL
+    // In a real-world scenario, you would implement a server-side logic to generate unique short URLs
+    var shortUrl = 'https://vikumk.github.io/' + Math.random().toString(36).substr(2, 5);
+    
+    // Call the callback function with the generated short URL
+    callback(shortUrl);
 }
