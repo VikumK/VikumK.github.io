@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Calculate the estimated time to download a file based on its size and your internet speed with our Download Time Calculator. Try it now!">
+    <title>Download Time Calculator | Estimate File Download Time</title>
+    <!-- Copyright symbol -->
+    <meta name="copyright" content="&copy; 2024 VikumK">
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://www.vikumk.github.io/download-time-calculator">
+    <!-- Robots meta tag to specify index and follow -->
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="Download Time Calculator | Estimate File Download Time">
+    <meta property="og:description"
+        content="Calculate the estimated time to download a file based on its size and your internet speed with our Download Time Calculator. Try it now!">
+    <meta property="og:url" content="https://www.vikumk.github.io/download-time-calculator">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card for Twitter sharing -->
+    <meta name="twitter:title" content="Download Time Calculator | Estimate File Download Time">
+    <meta name="twitter:description"
+        content="Calculate the estimated time to download a file based on its size and your internet speed with our Download Time Calculator. Try it now!">
+    <meta name="twitter:url" content="https://www.vikumk.github.io/download-time-calculator">
+    <meta name="twitter:card" content="summary">
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.8rem;
+        }
+
+        .result-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="https://vikumk.github.io/">vikumk.github.io</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://vikumk.github.io/">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://vikumk.github.io/tools">Tools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="mt-5">Download Time Calculator</h1>
+            <p class="lead">Calculate the estimated time to download a file based on its size and your internet speed.
+            </p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fileSize">File Size:</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="fileSize" placeholder="Enter File Size"
+                                title="Enter the file size" required min="0">
+                            <div class="input-group-append">
+                                <select id="size-unit" class="form-control" title="Select file size unit">
+                                    <optgroup label="Bytes">
+                                        <option value="Byte">Byte (B)</option>
+                                        <option value="Kilobyte">Kilobyte (KB)</option>
+                                        <option value="Megabyte">Megabyte (MB)</option>
+                                        <option value="Gigabyte">Gigabyte (GB)</option>
+                                        <option value="Terabyte">Terabyte (TB)</option>
+                                    </optgroup>
+                                    <optgroup label="Bits">
+                                        <option value="Bit">Bit (b)</option>
+                                        <option value="Kilobit">Kilobit (Kb)</option>
+                                        <option value="Megabit">Megabit (Mb)</option>
+                                        <option value="Gigabit">Gigabit (Gb)</option>
+                                        <option value="Terabit">Terabit (Tb)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="fileSizeError" class="error-message d-none">File size must be a positive number.</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="downloadSpeed">Download Speed:</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="downloadSpeed"
+                                placeholder="Enter Download Speed" title="Enter your download speed" required min="0">
+                            <div class="input-group-append">
+                                <select id="speed-unit" class="form-control" title="Select download speed unit">
+                                    <optgroup label="Bits per second">
+                                        <option value="bps">bps</option>
+                                        <option value="Kbps">Kbps</option>
+                                        <option value="Mbps">Mbps</option>
+                                        <option value="Gbps">Gbps</option>
+                                        <option value="Tbps">Tbps</option>
+                                    </optgroup>
+                                    <optgroup label="Bytes per second">
+                                        <option value="Bps">Bps</option>
+                                        <option value="KBps">KBps</option>
+                                        <option value="MBps">MBps</option>
+                                        <option value="GBps">GBps</option>
+                                        <option value="TBps">TBps</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="downloadSpeedError" class="error-message d-none">Download speed must be a positive
+                            number.</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Closing tag for row -->
+            <button id="calculateButton" class="btn btn-primary">Calculate</button>
+            <button id="resetButton" class="btn btn-secondary ml-2">Reset</button>
+            <div id="result" class="result-container mt-3"></div>
+        </div>
+    </main>
+    <!-- Closing tag for container -->
+    <footer class="mt-5">
+        <div class="container">
+            <p>&copy; 2024 VikumK. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
