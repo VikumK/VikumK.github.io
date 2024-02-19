@@ -1,0 +1,26 @@
+
+/* Add custom styles here */
+/* Implement responsive design */
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+}
+
+/* Implement visual hierarchy */
+h1 {
+  font-size: 2em;
+}
+
+.lead {
+  font-size: 1.2em;
+}
+
+/* Implement whitespace */
+.container {
+  padding: 20px;
+}
+
+/* Implement interactive elements */
+ul li a:hover {
+  color: #007bff;
+  /* Change link color on hover */
+}
