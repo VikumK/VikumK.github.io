@@ -84,6 +84,13 @@
                             <label for="radius">Radius:</label>
                             <input type="number" id="radius" class="form-control">
                         </div>
+                        <div class="col-md-4">
+                            <label>π Value:</label><br>
+                            <input type="radio" id="pi1" name="pi" value="3.14" checked>
+                            <label for="pi1">3.14</label>
+                            <input type="radio" id="pi2" name="pi" value="22/7">
+                            <label for="pi2">22/7</label>
+                        </div>
                     </div>
                     <div class="row justify-content" id="triangleInputs" style="display: none;">
                         <div class="col-md-4">
@@ -96,11 +103,13 @@
                         </div>
                     </div>
                 </div>
+                <br>
+                <button id="calculateButton" class="btn btn-primary">Calculate</button>
+                <button id="resetButton" class="btn btn-secondary ml-2">Reset</button>
+                <div id="result" class="result-container mt-3"></div>
             </div>
         </main>
 
-
-        <!-- Closing tag for container -->
         <footer class="mt-5">
             <div class="container">
                 <p>&copy; 2024 VikumK. All Rights Reserved.</p>
