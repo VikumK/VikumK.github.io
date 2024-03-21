@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
         content="Calculate the area of squares, rectangles, circles, and triangles with our online Area Calculator. Simple and easy to use. Try it now!" />
-    <title>Online Area Calculator | Calculate Area </title>
+    <title>Online Area Calculator | Calculate Area - VikumK</title>
     <!-- Copyright symbol -->
     <meta name="copyright" content="&copy; 2024 VikumK" />
     <!-- CSS stylesheets -->
@@ -15,7 +15,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
+    <!-- SEO -->
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vikumk.github.io/tools/Area-Calculator" />
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="Online Area Calculator | Calculate Area - VikumK" />
+    <meta property="og:description"
+        content="Calculate the area of squares, rectangles, circles, and triangles with our online Area Calculator. Simple and easy to use. Try it now!" />
+    <meta property="og:url" content="https://vikumk.github.io/tools/Area-Calculator" />
+    <meta property="og:image" content="https://example.com/area-calculator-thumbnail.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
+
 
 <body>
     <header>
@@ -42,82 +55,99 @@
                 </ul>
             </div>
         </nav>
-        <main>
-            <div class="container">
-                <h1 class="mt-5">Online Area Calculator</h1>
-                <div class="row justify-content">
+    </header>
+    <main>
+        <div class="container">
+            <h1 class="mt-5">Online Area Calculator</h1>
+            <div class="row justify-content">
+                <div class="col-md-4">
+                    <label for="shape">Select Shape</label>
+                    <select id="shape" class="form-control" title="Select Shape">
+                        <option>-- Shape --</option>
+                        <option value="square">Square</option>
+                        <option value="rectangle">Rectangle</option>
+                        <option value="circle">Circle</option>
+                        <option value="triangle">Triangle</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div id="formula"></div>
+            <div id="inputs">
+                <div class="row justify-content" id="squareInputs">
                     <div class="col-md-4">
-                        <label for="shape">Select Shape</label>
-                        <select id="shape" class="form-control" title="Select Shape">
-                            <option>-- Shape --</option>
-                            <option value="square">Square</option>
-                            <option value="rectangle">Rectangle</option>
-                            <option value="circle">Circle</option>
-                            <option value="triangle">Triangle</option>
-                        </select>
+                        <label for="side">Side Length:</label>
+                        <input type="number" id="side" class="form-control">
                     </div>
                 </div>
-                <br>
-                <div id="formula"></div>
-                <div id="inputs">
-                    <div class="row justify-content" id="squareInputs">
-                        <div class="col-md-4">
-                            <label for="side">Side Length:</label>
-                            <input type="number" id="side" class="form-control">
-                        </div>
+                <div class="row justify-content" id="rectangleInputs" style="display: none;">
+                    <div class="col-md-4">
+                        <label for="length">Length:</label>
+                        <input type="number" id="length" class="form-control">
                     </div>
-                    <div class="row justify-content" id="rectangleInputs" style="display: none;">
-                        <div class="col-md-4">
-                            <label for="length">Length:</label>
-                            <input type="number" id="length" class="form-control">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="width">Width:</label>
-                            <input type="number" id="width" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row justify-content" id="circleInputs" style="display: none;">
-                        <div class="col-md-4">
-                            <label for="radius">Radius:</label>
-                            <input type="number" id="radius" class="form-control">
-                        </div>
-                        <div class="col-md-4">
-                            <label>π Value:</label><br>
-                            <input type="radio" id="pi1" name="pi" value="3.14" checked>
-                            <label for="pi1">3.14</label>
-                            <input type="radio" id="pi2" name="pi" value="22/7">
-                            <label for="pi2">22/7</label>
-                        </div>
-                    </div>
-                    <div class="row justify-content" id="triangleInputs" style="display: none;">
-                        <div class="col-md-4">
-                            <label for="base">Base:</label>
-                            <input type="number" id="base" class="form-control">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="height">Height:</label>
-                            <input type="number" id="height" class="form-control">
-                        </div>
+                    <div class="col-md-4">
+                        <label for="width">Width:</label>
+                        <input type="number" id="width" class="form-control">
                     </div>
                 </div>
-                <br>
-                <button id="calculateButton" class="btn btn-primary">Calculate</button>
-                <button id="resetButton" class="btn btn-secondary ml-2">Reset</button>
-                <div id="result" class="result-container mt-3"></div>
+                <div class="row justify-content" id="circleInputs" style="display: none;">
+                    <div class="col-md-4">
+                        <label for="radius">Radius:</label>
+                        <input type="number" id="radius" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label>π Value:</label><br>
+                        <input type="radio" id="pi1" name="pi" value="3.14" checked>
+                        <label for="pi1">3.14</label>
+                        <input type="radio" id="pi2" name="pi" value="22/7">
+                        <label for="pi2">22/7</label>
+                    </div>
+                </div>
+                <div class="row justify-content" id="triangleInputs" style="display: none;">
+                    <div class="col-md-4">
+                        <label for="base">Base:</label>
+                        <input type="number" id="base" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="height">Height:</label>
+                        <input type="number" id="height" class="form-control">
+                    </div>
+                </div>
             </div>
-        </main>
+            <br>
+            <button id="calculateButton" class="btn btn-primary">Calculate</button>
+            <button id="resetButton" class="btn btn-secondary ml-2">Reset</button>
+            <div id="result" class="result-container mt-3"></div>
+        </div>
+    </main>
 
-        <footer class="mt-5">
-            <div class="container">
-                <p>&copy; 2024 VikumK. All Rights Reserved.</p>
+    <footer class="mt-5">
+        <div class="container">
+            <p>&copy; 2024 VikumK. All Rights Reserved.</p>
+            <!-- Additional SEO Content -->
+            <nav>
+                <ul>
+                    <li><a href="https://vikumk.github.io/">Home</a></li>
+                    <li><a href="https://vikumk.github.io/tools">Tools</a></li>
+                    <li><a href="https://vikumk.github.io/about">About</a></li>
+                    <li><a href="https://vikumk.github.io/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div>
+                <!-- Additional SEO Links -->
+                <a href="sitemap.xml">Sitemap</a> |
+                <a href="privacy-policy">Privacy Policy</a> |
+                <a href="terms-of-service">Terms of Service</a>
             </div>
-        </footer>
-        <!-- JavaScript libraries -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <!-- Custom JavaScript -->
-        <script src="script.js"></script>
+        </div>
+    </footer>
+
+    <!-- JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
 </body>
 
 </html>
