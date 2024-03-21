@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Calculator</title>
+    <style>
+        /* You can add custom CSS styles here */
+    </style>
+</head>
+<body>
+    <h2>Area Calculator</h2>
+
+    <label for="shape">Select Shape:</label>
+    <select id="shape">
+        <option value="0">-- Select --</option>
+        <option value="1">Square</option>
+        <option value="2">Circle</option>
+        <option value="3">Rectangle</option>
+        <option value="4">Triangle</option>
+    </select>
+
+    <div id="inputs" style="display:none;"></div>
+
+    <label for="pi">Select Value of Pi (π):</label>
+    <select id="pi">
+        <option value="3.14">3.14</option>
+        <option value="22/7">22/7</option>
+    </select>
+
+    <button id="calculate" style="display:none;">Calculate</button>
+
+    <div id="output" style="display:none;"></div>
+
+    <script>
+        document.getElementById('shape').addEventListener('change', function() {
+            var selectedShape = this.value;
+            
+            // Hide all sections
+            document.getElementById('inputs').style.display = 'none';
+            document.getElementById('calculate').style.display = 'none';
+            document.getElementById('output').style.display = 'none';
+
+            if (selectedShape == '1') {
+                // Show relevant inputs for square
+                // For example: Length input field
+                document.getElementById('inputs').innerHTML = '<label for="length">Length:</label> <input type="number" id="length">';
+                document.getElementById('inputs').style.display = 'block';
+                // Show calculate button
+                document.getElementById('calculate').style.display = 'block';
+            } else if (selectedShape == '2') {
+                // Show relevant inputs for circle
+                // For example: Radius input field
+                document.getElementById('inputs').innerHTML = '<label for="radius">Radius:</label> <input type="number" id="radius">';
+                document.getElementById('inputs').style.display = 'block';
+                // Show calculate button
+                document.getElementById('calculate').style.display = 'block';
+            } else if (selectedShape == '3') {
+                // Show relevant inputs for rectangle
+                // For example: Length and Width input fields
+                document.getElementById('inputs').innerHTML = '<label for="length">Length:</label> <input type="number" id="length"> <br> <label for="width">Width:</label> <input type="number" id="width">';
+                document.getElementById('inputs').style.display = 'block';
+                // Show calculate button
+                document.getElementById('calculate').style.display = 'block';
+            } else if (selectedShape == '4') {
+                // Show relevant inputs for triangle
+                // For example: Base and Height input fields
+                document.getElementById('inputs').innerHTML = '<label for="base">Base:</label> <input type="number" id="base"> <br> <label for="height">Height:</label> <input type="number" id="height">';
+                document.getElementById('inputs').style.display = 'block';
+                // Show calculate button
+                document.getElementById('calculate').style.display = 'block';
+            }
+        });
+
+        document.getElementById('calculate').addEventListener('click', function() {
+            var selectedShape = document.getElementById('shape').value;
+            var pi = document.getElementById('pi').value;
+            var result;
+            
+            if (selectedShape == '1') {
+                // Calculate area of square
+                var length = parseFloat(document.getElementById('length').value);
+                result = length * length;
+            } else if (selectedShape == '2') {
+                // Calculate area of circle
+                var radius = parseFloat(document.getElementById('radius').value);
+                if (pi == '3.14') {
+                    result = Math.PI * radius * radius;
+                } else if (pi == '22/7') {
+                    result = (22/7) * radius * radius;
+                }
+            } else if (selectedShape == '3') {
+                // Calculate area of rectangle
+                var length = parseFloat(document.getElementById('length').value);
+                var width = parseFloat(document.getElementById('width').value);
+                result = length * width;
+            } else if (selectedShape == '4') {
+                // Calculate area of triangle
+                var base = parseFloat(document.getElementById('base').value);
+                var height = parseFloat(document.getElementById('height').value);
+                result = 0.5 * base * height;
+            }
+
+            // Display the result in the output area
+            document.getElementById('output').innerHTML = 'Area: ' + result.toFixed(2);
+            document.getElementById('output').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
